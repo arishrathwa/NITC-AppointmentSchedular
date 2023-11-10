@@ -3,23 +3,25 @@ import { Link } from 'react-router-dom'
 // import "../styles/style.css";
 // import "../styles/demo.css";
 export const Calendar = () => {
-    const {dateEvent,setDateEvent} = useState({
-        date:new Date().getDate(),
-        day:new Date().getDay(),
-        month:new Date().getMonth(),
-        year:new Date().getFullYear,
-        events:[],
+    const { dateEvent, setDateEvent } = useState({
+        date: new Date().getDate(),
+        day: new Date().getDay(),
+        month: new Date().getMonth(),
+        year: new Date().getFullYear,
+        events: [],
     });
     //submit form event 
     let handleSubmit = async (event) => {
-    event.preventDefault();
-}
+        event.preventDefault();
+    }
     return (
-        
+
         <Fragment>
             <main className='cd__main' >
                 {/* <!-- Start DEMO HTML (Use the following code into your project)--> */}
                 <div id='calendar' ></div>
+
+                <script src='./utilities/calendarUtil.js'></script>
 
                 {/* <!-- Add modal --> */}
 
@@ -79,9 +81,9 @@ export const Calendar = () => {
                     </div>
                 </div>
 
-               
+
             </main>
-            <script src='./utilities/calendarUtil.js'></script>
+
 
         </Fragment>
     )
