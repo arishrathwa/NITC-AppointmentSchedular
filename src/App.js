@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment } from "react";
+import Layout from "./higherOrderComponents/Layout";
+import { BrowserRouter } from "react-router-dom";
+import { Routes,Route } from "react-router-dom";
+import { Login } from "./components/pages/auth/Login";
+import { Home } from "./components/pages/Home";
+import { ErrorBlock } from "./components/pages/ErrorBlock";
+import { Register } from "./components/pages/auth/Register";
+import { Dashboard } from "./components/pages/Dashboard";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      {/*Root router for browser*/ }
+        <BrowserRouter> 
+         
+          <Routes>
+            <Route path="/" element={<Layout/>} >
+              <Route index element={<Home/>}/>
+              <Route path="/login" element={<Login/>}/>
+              <Route path="/register" element={<Register/>}/>
+              <Route path="/dashboard" element={<Dashboard/>}/>
+            </Route>
+            {/* for any invalid path */}
+            <Route path="*" Component={ErrorBlock}/> 
+          </Routes>
+          
+        </BrowserRouter>
+    </Fragment>
   );
 }
 
